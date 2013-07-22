@@ -22,3 +22,8 @@ class TestThingCollider(TestCase):
         grid.place_new((2,2), 1)
         collision = self.collider.will_result_in_collision(self.fakegrid, (1, 2))
         self.assertFalse(collision)
+
+    def test_off_board_is_not_collision(self):
+        self.fakegrid.place_new((2,2), 1)
+        collision = self.collider.will_result_in_collision(self.fakegrid, (5,5))
+        self.assertFalse(collision)

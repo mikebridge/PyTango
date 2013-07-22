@@ -69,6 +69,11 @@ class Grid:
     def register_collision(self, id):
         self.__collisions_detected_by_id__.update({id})
 
+    def is_on_board(self, coord):
+        x = coord[0]
+        y = coord[1]
+        return 0 <= x < self.width and 0 <= y < self.height
+
     @property
     def width(self):
         return self.__grid__.shape[0]

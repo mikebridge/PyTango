@@ -103,6 +103,14 @@ class TestGrid(TestCase):
         self.assertFalse(self.test_grid.was_collision())
         self.assertEqual(new_coord, (1,1))
 
+    def test_grid_can_tell_when_point_is_off_grid(self):
+        is_on_board = self.test_grid.is_on_board((99,99))
+        self.assertFalse(is_on_board)
+
+    def test_grid_can_tell_when_point_is_on_grid(self):
+        is_on_board = self.test_grid.is_on_board((0,0))
+        self.assertTrue(is_on_board)
+
     def place_center(self, newid):
         self.test_grid.place_new((1,1), newid)
 
